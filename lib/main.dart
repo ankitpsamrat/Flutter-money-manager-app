@@ -30,16 +30,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // late String titleInput;
-  // final titleController = TextEditingController();
-  // final amountController = TextEditingController();
-
   final List<Transaction> _userTransactions = [
     // Transaction(
     //   id: 't1',
     //   title: 'Shoes',
     //   amount: 1500,
-    //   date: DateTime.now(),
+    //   date: DateTime.now(),  // dummy data for testing
     // ),
     // Transaction(
     //   id: 't2',
@@ -59,11 +55,11 @@ class _HomePageState extends State<HomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(String txTitle, double txAmount, DateTime choseDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      date: DateTime.now(),
+      date: choseDate,
       id: DateTime.now().toString(),
     );
 
@@ -85,24 +81,32 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.retainWhere((tx) {
+        return tx.id == id;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Expenses'),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
-          ),
-        ],
+        // actions: [   // add transaction icon in appbar
+        // IconButton(
+        //   icon: Icon(Icons.add),
+        //   onPressed: () => _startAddNewTransaction(context),
+        // ),
+        // ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Chart(_recentTransaction),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
