@@ -1,12 +1,19 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
   final String label;
+
   final double spendingAmount;
+
   final double spendingPctOfTotal;
-  ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
+
+  const ChartBar(
+    this.label,
+    this.spendingAmount,
+    this.spendingPctOfTotal,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,9 @@ class ChartBar extends StatelessWidget {
         Container(
           height: 20,
           child: FittedBox(
-            child: Text('${spendingAmount.toStringAsFixed(0)}'),
+            child: Text(
+              spendingAmount.toStringAsFixed(0),
+            ),
           ),
         ),
         SizedBox(
@@ -28,7 +37,10 @@ class ChartBar extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
                   color: Color.fromRGBO(220, 220, 220, 1),
                   borderRadius: BorderRadius.circular(10),
                 ),

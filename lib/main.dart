@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, deprecated_member_use, avoid_print, must_be_immutable
-
 import 'package:flutter/material.dart';
-import 'widgets/chart.dart';
-import 'models/transaction.dart';
-import 'widgets/new_transaction.dart';
-import 'widgets/transaction_list.dart';
+import '/widgets/chart.dart';
+import '/models/transaction.dart';
+import '/widgets/new_transaction.dart';
+import '/widgets/transaction_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Money manager',
-      theme: ThemeData(primarySwatch: Colors.teal),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
       home: HomePage(),
     );
   }
@@ -46,16 +46,22 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<Transaction> get _recentTransaction {
-    return _userTransactions.where((tx) {
-      return tx.date.isAfter(
-        DateTime.now().subtract(
-          Duration(days: 7),
-        ),
-      );
-    }).toList();
+    return _userTransactions.where(
+      (tx) {
+        return tx.date.isAfter(
+          DateTime.now().subtract(
+            Duration(days: 7),
+          ),
+        );
+      },
+    ).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount, DateTime choseDate) {
+  void _addNewTransaction(
+    String txTitle,
+    double txAmount,
+    DateTime choseDate,
+  ) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
@@ -93,7 +99,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personal Expenses'),
+        title: Text(
+          'Personal Expenses',
+        ),
         elevation: 0,
         // actions: [   // add transaction icon in appbar
         // IconButton(
@@ -111,7 +119,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+        ),
         onPressed: () => _startAddNewTransaction(context),
       ),
     );
