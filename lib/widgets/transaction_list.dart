@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import '/models/transaction.dart';
@@ -21,20 +21,20 @@ class TransactionList extends StatelessWidget {
       child: transaction.isEmpty
           ? Column(
               children: [
-                Text(
+                const Text(
                   'No Transaction Yet!',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   height: 200,
                   child: Image.asset(
-                    'images/payment.png',
+                    'assets/images/payment.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -44,7 +44,7 @@ class TransactionList extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 return Card(
                   elevation: 5,
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                     vertical: 6,
                     horizontal: 8,
                   ),
@@ -52,7 +52,7 @@ class TransactionList extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: FittedBox(
                           child: Text(
                             '₹' '${transaction[index].amount}',
@@ -62,7 +62,7 @@ class TransactionList extends StatelessWidget {
                     ),
                     title: Text(
                       transaction[index].title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -70,7 +70,7 @@ class TransactionList extends StatelessWidget {
                       DateFormat.yMMMd().format(transaction[index].date),
                     ),
                     trailing: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.delete,
                       ),
                       color: Colors.red,

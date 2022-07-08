@@ -19,12 +19,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -50,7 +52,7 @@ class _HomePageState extends State<HomePage> {
       (tx) {
         return tx.date.isAfter(
           DateTime.now().subtract(
-            Duration(days: 7),
+            const Duration(days: 7),
           ),
         );
       },
@@ -99,7 +101,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        centerTitle: true,
+        title: const Text(
           'Personal Expenses',
         ),
         elevation: 0,
@@ -119,7 +122,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(
+        child: const Icon(
           Icons.add,
         ),
         onPressed: () => _startAddNewTransaction(context),

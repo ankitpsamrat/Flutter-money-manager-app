@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, deprecated_member_use
+// ignore_for_file: sized_box_for_whitespace, deprecated_member_use, use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -61,19 +61,19 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Title',
               ),
               controller: _titleController,
               onSubmitted: (_) => _submitData(),
             ),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Amount',
               ),
               controller: _amountController,
@@ -93,7 +93,7 @@ class _NewTransactionState extends State<NewTransaction> {
                   ),
                   FlatButton(
                     textColor: Theme.of(context).primaryColor,
-                    child: Text(
+                    child: const Text(
                       'Choose Date',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class _NewTransactionState extends State<NewTransaction> {
               ),
             ),
             RaisedButton(
-              child: Text(
+              child: const Text(
                 'Add Transaction',
               ),
               color: Colors.purple,

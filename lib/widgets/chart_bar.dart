@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class ChartBar extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Container(
@@ -41,7 +41,7 @@ class ChartBar extends StatelessWidget {
                     color: Colors.grey,
                     width: 1,
                   ),
-                  color: Color.fromRGBO(220, 220, 220, 1),
+                  color: const Color.fromRGBO(220, 220, 220, 1),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
@@ -57,7 +57,7 @@ class ChartBar extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Text(label),
