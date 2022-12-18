@@ -102,9 +102,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Personal Expenses',
-        ),
+        title: const Text('Personal Expenses'),
         elevation: 0,
         // actions: [   // add transaction icon in appbar
         // IconButton(
@@ -122,9 +120,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.add,
-        ),
+        child: const Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),
       ),
     );

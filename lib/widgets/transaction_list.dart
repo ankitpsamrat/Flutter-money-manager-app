@@ -28,9 +28,7 @@ class TransactionList extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Container(
                   height: 200,
                   child: Image.asset(
@@ -41,6 +39,7 @@ class TransactionList extends StatelessWidget {
               ],
             )
           : ListView.builder(
+              itemCount: transaction.length,
               itemBuilder: (ctx, index) {
                 return Card(
                   elevation: 5,
@@ -54,9 +53,7 @@ class TransactionList extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(6),
                         child: FittedBox(
-                          child: Text(
-                            '₹' '${transaction[index].amount}',
-                          ),
+                          child: Text('₹' '${transaction[index].amount}'),
                         ),
                       ),
                     ),
@@ -79,7 +76,6 @@ class TransactionList extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: transaction.length,
             ),
     );
   }

@@ -15,8 +15,9 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-  final _titleController = TextEditingController();
+  //
 
+  final _titleController = TextEditingController();
   final _amountController = TextEditingController();
 
   DateTime? _selectedDate;
@@ -91,27 +92,35 @@ class _NewTransactionState extends State<NewTransaction> {
                           : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
                     ),
                   ),
-                  FlatButton(
-                    textColor: Theme.of(context).primaryColor,
-                    child: const Text(
-                      'Choose Date',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  ElevatedButton(
                     onPressed: _presentDatePicker,
+                    child: const Text('Choose Date'),
                   ),
+                  // FlatButton(
+                  //   textColor: Theme.of(context).primaryColor,
+                  //   child: const Text(
+                  //     'Choose Date',
+                  //     style: TextStyle(
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  //   onPressed: _presentDatePicker,
+                  // ),
                 ],
               ),
             ),
-            RaisedButton(
-              child: const Text(
-                'Add Transaction',
-              ),
-              color: Colors.purple,
-              textColor: Colors.white,
+            ElevatedButton(
               onPressed: _submitData,
+              child: const Text('Add Transaction'),
             ),
+            // RaisedButton(
+            //   child: const Text(
+            //     'Add Transaction',
+            //   ),
+            //   color: Colors.purple,
+            //   textColor: Colors.white,
+            //   onPressed: _submitData,
+            // ),
           ],
         ),
       ),

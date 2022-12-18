@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
   final String label;
-
   final double spendingAmount;
-
   final double spendingPctOfTotal;
 
   const ChartBar(
@@ -27,9 +25,7 @@ class ChartBar extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 4,
-        ),
+        const SizedBox(height: 4),
         Container(
           height: 60,
           width: 10,
@@ -57,9 +53,7 @@ class ChartBar extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(
-          height: 4,
-        ),
+        const SizedBox(height: 4),
         Text(label),
       ],
     );
